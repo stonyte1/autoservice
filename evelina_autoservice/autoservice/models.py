@@ -49,7 +49,7 @@ class Order(models.Model):
         on_delete=models.CASCADE,
         related_name="orders"
         )
-    total = models.CharField(_("total"), max_length=20, db_index=True)
+    total = models.FloatField(_("total"), db_index=True)
 
     class Meta:
         ordering = ['date']
@@ -57,7 +57,7 @@ class Order(models.Model):
         verbose_name_plural = _("orders")
 
     def __str__(self):
-        return f'{self.date} - {self.car}'
+        return f'{self.date}'
 
     def get_absolute_url(self):
         return reverse("order_detail", kwargs={"pk": self.pk})
@@ -91,9 +91,20 @@ class OrderLine(models.Model):
         on_delete=models.CASCADE,
         related_name="order_lines",
         )
-    quantity = models.CharField(_("quantity"), max_length=20, db_index=True)
-    price = models.IntegerField(_("price"), db_index=True)
+    quantity = models.FloatField(_("quantity"), db_index=True)
+    # price = models.IntegerField(_("price"), db_index=True)
+    order = models.ForeignKey(
+        Order, 
+        on_delete=models.CASCADE,
+        related_name='order_lines')
 
+    @property
+    def suma(self):
+        return self.quantity * self.price
+
+    def __str__(self):
+        return f"{self.service}"
+    
     class Meta:
         ordering = ['car']
         verbose_name = _("order line")
