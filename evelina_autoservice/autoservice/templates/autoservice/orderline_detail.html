@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}{{ order_line.car.client }} | {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>{{ order_line.car.client }}</h1>
+<h2> {{ order_line.service }} </h2>
+<ul>
+    <li>Date: {{ order_line.order.date }}</li>
+    <li>Car model: {{ order_line.car.car_model }}</li>
+    <li>License plate: {{ order_line.car.license_plate }}</li>
+    <li>
+        Status: 
+        {% if order_line.order.status == 'c' %}Confirmed{% endif %}
+        {% if order_line.order.status == 'p' %}In process{% endif %}
+        {% if order_line.order.status == 'a' %}Completed{% endif %}
+        {% if order_line.order.status == 'd' %}Denied{% endif %}
+    </li>
+    <li>Total price: {{ order_line.order.total }}</li>
+</ul>
+{% endblock content %}

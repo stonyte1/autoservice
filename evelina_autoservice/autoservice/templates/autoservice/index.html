@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Welcome to autoservice{% endblock title %}
+{% block content %}
+<h1>Mermaido autoservice</h1>
+<div class="column-container">
+    <ul class="services">
+      <li><strong>Services</strong> {{ num_service }}</li>
+    </ul>
+    <ul class="orders">
+      <li><strong>Orders</strong> {{ num_order }}</li>
+    </ul>
+    <ul class="cars">
+      <li><strong>Cars</strong> {{ num_car }}</li>
+    </ul>
+  </div>
+{% endblock content %}

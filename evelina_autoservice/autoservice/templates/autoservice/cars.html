@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Cars in {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Cars</h1>
+{% with car_list as page_obj %}
+    {% include 'includes/paginator_nav.html' %}
+{% endwith %}
+<ul>
+    {% for car in car_list %}
+        <li><a href='{% url 'car_details' pk=car.pk %}'>{{ car }}</a></li>
+    {% endfor %}
+</ul>
+{% with car_list as page_obj %}
+    {% include 'includes/paginator_pages.html' %}
+{% endwith %}
+{% endblock content %}

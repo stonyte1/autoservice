@@ -51,6 +51,29 @@ class Order(models.Model):
         )
     total = models.FloatField(_("total"), db_index=True)
 
+    STATUS = (
+        ('c', 'Confirmed'),
+        ('p', 'In procces'),
+        ('a', 'Completed'),
+        ('d', 'Denied'),
+    )
+
+    status = models.CharField(
+        max_length=1,
+        choices=STATUS,
+        blank=True,
+        default='c',
+        help_text='Status',
+    )
+
+    @property
+    def total(self):
+        order_line = OrderLine.objects.filter(order=self.id)
+        total = 0
+        for line in order_line:
+            total += line.quantity * line.price
+        return total
+    
     class Meta:
         ordering = ['date']
         verbose_name = _("order")
@@ -77,30 +100,26 @@ class Service(models.Model):
     def get_absolute_url(self):
         return reverse("service_detail", kwargs={"pk": self.pk})
 
-
 class OrderLine(models.Model):
     service = models.ForeignKey(
         Service, 
         verbose_name=_("service"), 
         on_delete=models.CASCADE,
         related_name="order_lines"
-        )
+    )
     car = models.ForeignKey(
         Car, 
         verbose_name=_("car"), 
         on_delete=models.CASCADE,
-        related_name="order_lines",
-        )
+        related_name="order_lines"
+    )
     quantity = models.FloatField(_("quantity"), db_index=True)
-    # price = models.IntegerField(_("price"), db_index=True)
+    price = models.IntegerField(_("price"), db_index=True)  # Uncomment this line
     order = models.ForeignKey(
         Order, 
         on_delete=models.CASCADE,
-        related_name='order_lines')
-
-    @property
-    def suma(self):
-        return self.quantity * self.price
+        related_name='order_lines'
+    )
 
     def __str__(self):
         return f"{self.service}"
@@ -110,8 +129,5 @@ class OrderLine(models.Model):
         verbose_name = _("order line")
         verbose_name_plural = _("order lines")
 
-    def __str__(self):
-        return f'{self.service}'
-
     def get_absolute_url(self):
-        return reverse("order line_detail", kwargs={"pk": self.pk})
+        return reverse("order_line_detail", kwargs={"pk": self.pk})
