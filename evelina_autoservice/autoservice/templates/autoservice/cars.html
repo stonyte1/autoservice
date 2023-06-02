@@ -2,14 +2,23 @@
 {% block title %}Cars in {{ block.super }}{% endblock title %}
 {% block content %}
 <h1>Cars</h1>
+{% include 'includes/search.html' %}
 {% with car_list as page_obj %}
     {% include 'includes/paginator_nav.html' %}
 {% endwith %}
-<ul>
+<ul class="car-list">
     {% for car in car_list %}
-        <li><a href='{% url 'car_details' pk=car.pk %}'>{{ car }}</a></li>
+    <li>
+        <a href="{% url 'car_details' pk=car.pk %}">
+            {% if car.car_image %}
+                <img class="car-image" src="{{ car.car_image.url }}">
+            {% endif %}
+            <span>{{ car }}</span>
+        </a>
+    </li>
     {% endfor %}
 </ul>
+
 {% with car_list as page_obj %}
     {% include 'includes/paginator_pages.html' %}
 {% endwith %}

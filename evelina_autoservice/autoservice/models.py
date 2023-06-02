@@ -29,6 +29,11 @@ class Car(models.Model):
     )
     VIN_code = models.CharField(_("VIN code"), max_length=17, db_index=True)
     client = models.CharField(_("client"), max_length=50, db_index=True)
+    car_image = models.ImageField(
+        _("image"), 
+        upload_to='autoservice/car_images',
+        null=True,
+        blank=True)
     
     class Meta:
         ordering = ['client']

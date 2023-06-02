@@ -2,12 +2,25 @@
 {% block title %}Orders{% endblock title %}
 {% block content %}
 <h1>Orders</h1>
+{% include 'includes/search.html' %}
+{% comment %} <form action='{{ request.path }}' method='get'>
+    <input name='query' type='text' value='{{ request.GET.query }}'>
+    <button type='submit'>&#128269;</button>
+    {% if request.GET.query %}<a href='{{ request.path }}'>clear</a>{% endif %}
+</form> {% endcomment %}
 {% include 'includes/paginator_nav.html' %}
-    <ul>
-        {% for order_line in order_lines %}
-            <li><a href="{% url 'orderline_detail' pk=order_line.pk %}">{{ order_line.order.date }} {{order_line.car}}</a></li>
-        {% endfor %}
-    </ul>
+<ul class='car-list'>
+    {% for order_line in order_lines %}
+        <li>
+            <a href="{% url 'orderline_detail' pk=order_line.pk %}">
+                {% if order_line.car.car_image %}
+                    <img class='car-image' src='{{ order_line.car.car_image.url }}'>
+                {% endif %}
+                {{ order_line.order.date }} {{order_line.car}}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
 {% include 'includes/paginator_pages.html' %}
 {% endblock content %}
 

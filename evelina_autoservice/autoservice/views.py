@@ -1,5 +1,9 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.db.models import Q
+from django.db.models.query import QuerySet
 from django.core.paginator import Paginator
 from . models import Order, Service, Car, OrderLine
 
@@ -18,7 +22,16 @@ def index(request):
     return render(request, 'autoservice/index.html', context)
 
 def car_list(request):
-    paginator = Paginator(Car.objects.all(), 3)
+    qs = Car.objects
+    query = request.GET.get('query')
+    if query:
+        qs = qs.filter(
+            Q(client__icontains=query) |
+            Q(license_plate__icontains=query)
+        )
+    else:
+        qs = qs.all()
+    paginator = Paginator(qs, 3)
     car_list = paginator.get_page(request.GET.get('page'))
     return render(request, 'autoservice/cars.html', {
         'car_list': car_list 
@@ -34,6 +47,16 @@ class OrderListView(generic.ListView):
     paginate_by = 3
     template_name = 'autoservice/orderline_list.html'
     context_object_name = 'order_lines'
+
+    def get_queryset(self) -> QuerySet[Any]:
+        qs = super().get_queryset()
+        query = self.request.GET.get('query')
+        if query:
+            qs = qs.filter(
+                Q(car__car_model__brand__icontains=query) |
+                Q(car__client__icontains=query)
+            )
+        return qs
 
 class OrderDetailView(generic.DetailView):
     model = OrderLine

@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 {% block title %}{{ car }} | {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>{{ car }}</h1>
-<h2> {{ car.client }} </h2>
-<ul>
-    <li>Car model: {{ car.car_model }}</li>
-    <li>License plate: {{ car.license_plate }}</li>
-    <li>VIN code: {{ car.VIN_code }}</li>
-</ul>
+<div class='info'>   
+    <h1>{{ car }}</h1>
+    <h2> {{ car.client }} </h2>
+        <img class='car-info-image' src='{{ car.car_image.url }}'>
+    <ul class='car-info'>
+        <li>Car brand: {{ car.car_model.brand }}</li>
+        <li>Car model: {{ car.car_model.model }}</li>
+        <li>Engine: {{ car.car_model.engine }}</li>
+        <li>Manufactor year: {{ car.car_model.year }}</li>
+        <li>License plate: {{ car.license_plate }}</li>
+        <li>VIN code: {{ car.VIN_code }}</li>
+    </ul>
+</div>
 {% endblock content %}
