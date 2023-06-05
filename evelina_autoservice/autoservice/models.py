@@ -1,6 +1,10 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
+from django.contrib.auth import get_user_model
+from datetime import date
+
+User = get_user_model()
 
 class CarModel(models.Model):
     brand = models.CharField(_("brand"), max_length=50, db_index=True)
@@ -28,7 +32,14 @@ class Car(models.Model):
         related_name='cars'
     )
     VIN_code = models.CharField(_("VIN code"), max_length=17, db_index=True)
-    client = models.CharField(_("client"), max_length=50, db_index=True)
+    client = models.ForeignKey(
+        User, 
+        verbose_name=_("client"), 
+        on_delete=models.CASCADE,
+        related_name='cars',
+        null=True,
+        blank=True
+        )
     car_image = models.ImageField(
         _("image"), 
         upload_to='autoservice/car_images',
@@ -55,6 +66,7 @@ class Order(models.Model):
         related_name="orders"
         )
     total = models.FloatField(_("total"), db_index=True)
+    due_back = models.DateTimeField(_("return time"), null=True, blank=True, db_index=True)
 
     STATUS = (
         ('c', 'Confirmed'),
@@ -75,10 +87,16 @@ class Order(models.Model):
     def total(self):
         order_line = OrderLine.objects.filter(order=self.id)
         total = 0
-        for line in order_line:
-            total += line.quantity * line.price
+        for order in order_line:
+            total += order.quantity * order.price
         return total
     
+    @property 
+    def is_overdue(self):
+        if self.due_back and date.today() > self.due_back:
+            return True
+        return False
+
     class Meta:
         ordering = ['date']
         verbose_name = _("order")
@@ -100,7 +118,7 @@ class Service(models.Model):
         verbose_name_plural = _("services")
 
     def __str__(self):
-        return f'{self.name} {self.price}'
+        return f'{self.name}'
 
     def get_absolute_url(self):
         return reverse("service_detail", kwargs={"pk": self.pk})
@@ -125,6 +143,11 @@ class OrderLine(models.Model):
         on_delete=models.CASCADE,
         related_name='order_lines'
     )
+
+    def save(self, *args, **kwargs):
+        service_price = self.service.price
+        self.price = service_price * self.quantity
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.service}"

@@ -63,7 +63,7 @@ header ul.nav a:hover {
 
 .column-container li {
     display: inline-block;
-    font-size: 1.25em;
+    font-size: 1em;
     margin: 0 10em;
 }
 
@@ -201,7 +201,7 @@ img.car-image {
 
 .car-info li {
     display: inline-block;
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin: 5em 2em;
     
 }

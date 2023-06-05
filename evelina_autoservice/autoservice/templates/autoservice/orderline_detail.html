@@ -16,6 +16,7 @@
             {% if order_line.order.status == 'a' %}Completed{% endif %}
             {% if order_line.order.status == 'd' %}Denied{% endif %}
         </li>
+        <li>Due Back: {{ order_line.order.due_back }}</li>
         <li>Total price: {{ order_line.order.total }}</li>
     </ul>
 </div>

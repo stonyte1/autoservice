@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load humanize %}
 {% block title %}Welcome to autoservice{% endblock title %}
 {% block content %}
 <h1>Stonyte autoservice</h1>
@@ -11,6 +12,9 @@
     </ul>
     <ul class="cars">
       <li><strong>Cars</strong> {{ num_car }}</li>
+    </ul>
+    <ul>
+      <li><strong>Account visits</strong> {{ num_visits|ordinal }} time</li>
     </ul>
   </div>
 {% endblock content %}
