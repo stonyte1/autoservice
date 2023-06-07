@@ -137,7 +137,9 @@ form {
 
 
 img.car-image {
-    max-width: 100%;
+    width: 350px; /* Specify the desired width */
+    height: 230px; /* Specify the desired height */
+    object-fit: cover; /* Optional: Ensures the image fills the specified dimensions */
     margin: 0 0.2rem;
     border: 3px solid #000;
 }
@@ -204,4 +206,44 @@ img.car-image {
     font-size: 1.4em;
     margin: 5em 2em;
     
+}
+
+.order-overdue {
+    color: rgb(76, 35, 35) !important;
+    font-weight: bold;
+    border: 1px solid #000;
+    background: rgb(240, 3, 3);
+}
+
+.about-order {
+    display: inline-block;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+form p label {
+    display: inline-block;
+    min-width: 12vw;
+}
+
+ox {
+    padding: 0.2rem 0.5rem;
+    margin: 0.5rem;
+    border: 1px solid #999999;
+    border-radius: 0.5rem;
+}
+.box-info {
+    background-color: #99ccff;
+}
+.box-warning {
+    background-color: #ffcc99;
+}
+.box-error {
+    background-color: #ff9999;
+}
+.box-success {
+    background-color: #c0ffb0;
+}
+.box-debug {
+    background-color: #eeeeee;
 }

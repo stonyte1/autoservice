@@ -23,6 +23,7 @@
             <li><a href="{% url 'user_order_list' %}">My Orders</a></li>
         {% else %}
             <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'signup' %}">Sign up</a></li>
         {% endif %}
         {% if user.is_authenticated %}
             {% if user.is_staff or user.is_superuser %}
@@ -30,7 +31,15 @@
             {% endif %}
         {% endif %}
     </ul>
-<main>{% block content %}{% endblock content %}</main>
+    <main>
+        {% if messages %}
+            {% for message in messages %}
+                <p class="box box-{{ message.tags }}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        {% block content %}
+        {% endblock content %}
+    </main>
 <footer><p>&copy; 2023 <a href='https://www.linkedin.com/in/evelina-stonyte/'> Evelina Stonyte</p></footer>
 </header>
 </body>

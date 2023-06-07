@@ -9,7 +9,8 @@
                 <li class="order-status{{ order_line.order.status }}">
                     <a href="{% url 'orderline_detail' pk=order_line.pk %}">{{ order_line.car }}</a>
                     {{ order_line.order.get_status_display }}{% if order_line.order.due_back %}, return by {{ order_line.order.due_back }}{% endif %}
-                    {% if order_line.order.status == 'p' and order_line.order.is_overdue %}<span class='overdue'>OVERDUE!</span>{% endif %}
+                    {% if order_line.order.status == 'p' and order_line.order.is_overdue %}
+                    <span class='order-overdue'>OVERDUE!</span>{% endif %}
                 </li>
             {% endfor %}
         </ul>

@@ -4,7 +4,8 @@
 <div class='info'>   
     <h1>{{ order_line.car.client }}</h1>
     <h2> {{ order_line.service }} </h2>
-        <img class='car-info-image' src='{{ order_line.car.car_image.url }}'>
+    <img class='car-info-image' src='{{ order_line.car.car_image.url }}'>
+    <p class="about-order">Order description: {{ order_line.order.about_order|safe }}</p>
     <ul class='car-info'>
         <li>Date: {{ order_line.order.date }}</li>
         <li>Car model: {{ order_line.car.car_model }}</li>
@@ -19,5 +20,6 @@
         <li>Due Back: {{ order_line.order.due_back }}</li>
         <li>Total price: {{ order_line.order.total }}</li>
     </ul>
+    
 </div>
 {% endblock content %}

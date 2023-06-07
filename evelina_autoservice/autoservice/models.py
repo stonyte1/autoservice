@@ -2,9 +2,12 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
 from django.contrib.auth import get_user_model
-from datetime import date
+from datetime import datetime
+from tinymce.models import HTMLField
+import pytz
 
 User = get_user_model()
+utc = pytz.UTC
 
 class CarModel(models.Model):
     brand = models.CharField(_("brand"), max_length=50, db_index=True)
@@ -67,6 +70,7 @@ class Order(models.Model):
         )
     total = models.FloatField(_("total"), db_index=True)
     due_back = models.DateTimeField(_("return time"), null=True, blank=True, db_index=True)
+    about_order = HTMLField(_("Order description"), max_length=4000, default='Enter order decription')
 
     STATUS = (
         ('c', 'Confirmed'),
@@ -93,7 +97,7 @@ class Order(models.Model):
     
     @property 
     def is_overdue(self):
-        if self.due_back and date.today() > self.due_back:
+        if self.due_back and datetime.today().replace(tzinfo=utc) > self.due_back.replace(tzinfo=utc):
             return True
         return False
 
