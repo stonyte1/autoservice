@@ -226,7 +226,7 @@ form p label {
     min-width: 12vw;
 }
 
-ox {
+.box {
     padding: 0.2rem 0.5rem;
     margin: 0.5rem;
     border: 1px solid #999999;
@@ -247,3 +247,102 @@ ox {
 .box-debug {
     background-color: #eeeeee;
 }
+
+form p label {
+    display: inline-block;
+    min-width: 12vw;
+}
+label[for='id_content'] {
+    display: none;
+}
+
+img.user-profile-picture {
+    max-width: 20vw;
+    padding: 0 0.5rem;
+    border-radius: 1rem;
+    float: left;
+}
+
+.chat-box {
+    margin-top: 20px;
+    margin-bottom: 5vh;
+}
+
+.chat-container {
+max-width: 400px; 
+margin: 0;
+padding: 20px;
+}
+
+.chat-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* .chat-input {
+flex: 1;
+margin-right: 10px;
+} */
+
+.chat-submit {
+background-color: #007bff;
+color: #fff;
+border: none;
+cursor: pointer;
+font-size: 12px; 
+padding: 5px 2px; 
+margin-top: 5px; /* Add some space between the input field and the button */
+margin-left: 7px;
+height: 20px; /* Adjust the height to your desired size */
+line-height: 1;
+width: 345px;
+}
+
+
+.chat-info {
+font-style: italic;
+color: #999;
+}
+
+.chat-list {
+margin-top: 20px;
+list-style-type: none;
+padding: 0;
+}
+
+.chat-item {
+margin-bottom: 10px;
+margin-left: 15px;
+}
+
+.chat-item .chat-time {
+font-size: 12px;
+color: #888;
+}
+
+.chat-item .chat-user {
+font-weight: bold;
+}
+
+.chat-item .chat-message {
+margin-top: 2px;
+}
+  
+.user-avatar {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+
+.create {
+    list-style: none;
+}
+
+.cancel{
+    font-size: medium;
+    margin-top: 5px;
+}
+
+  
+

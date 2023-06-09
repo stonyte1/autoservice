@@ -2,9 +2,12 @@
 {% block title %}{{ order_line.car.client }} | {{ block.super }}{% endblock title %}
 {% block content %}
 <div class='info'>   
-    <h1>{{ order_line.car.client }}</h1>
+    <h1>{{ order_line.car.client }} </h1>
     <h2> {{ order_line.service }} </h2>
     <img class='car-info-image' src='{{ order_line.car.car_image.url }}'>
+    {% if order_line.order.status == 'c' or order_line.order.status == 'd' %}
+        <a class='cancel' href="{% url 'order_cancel' order_line.order.pk %}">Cancel order</a>
+    {% endif %}
     <p class="about-order">Order description: {{ order_line.order.about_order|safe }}</p>
     <ul class='car-info'>
         <li>Date: {{ order_line.order.date }}</li>
@@ -20,6 +23,34 @@
         <li>Due Back: {{ order_line.order.due_back }}</li>
         <li>Total price: {{ order_line.order.total }}</li>
     </ul>
-    
+</div>
+<div class='chat-container'>
+    <h2>Chat</h2>
+    {% if user.is_authenticated %}
+        <form class='chat-form' method="post" action="{% url 'orderline_detail' pk=order_line.pk %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class='chat-submit' type="submit">Send</button>
+        </form>
+    {% else %}
+        <p class="chat-info">If you want to send a message, you have to 
+            <a href="{% url 'login' %}">login</a> or <a href="{% url 'signup' %}">sign up</a>
+        </p>
+    {% endif %}
+
+    {% if chats %}
+        <ul class='chat-list'>
+            {% for chat in chats %}
+                <li class='chat-item'>
+                    <span class="chat-time">{{ chat.message_at }}</span> by <a href="{% url 'profile' chat.user.id %}">
+                    {% if chat.user.profile.picture %}
+                        <img src="{{ user.profile.picture.url }}" class="user-avatar">
+                    {% endif %}
+                    <span class="chat-user">{{ chat.user }}</span><br></a>
+                    <span class="chat-message">{{ chat.message }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 </div>
 {% endblock content %}

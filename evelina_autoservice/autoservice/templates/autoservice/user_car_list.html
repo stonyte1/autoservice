@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}My Cars{% endblock title %}
+
+{% block content %}
+    <h1>My Cars</h1>
+    {% if cars %}
+        <ul>
+            {% for car in cars%}
+                <li>
+                    <a href="{% url 'car_details' pk=car.pk %}">{{ car }}</a>
+                    {{ car.get_status_display }}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Order history is empty.</p>
+    {% endif %}
+    <ul class='create'>
+        <li><a class="button float-right" href="{% url 'car_create' %}">Create Car</a></li>
+        <li><a class="button float-right" href="{% url 'order_create' %}?order_id={{ order.id }}">Create Order</a></li>
+    </ul>
+{% endblock content %}

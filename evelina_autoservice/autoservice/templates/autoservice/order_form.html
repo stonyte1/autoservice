@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Submit {{ car.client }} at {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Order for{{ car.client }}</h1>
+<form method="post" action="{{ request.path }}?order_id={{ order.id }}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Confirm Order</button>
+</form>
+{% endblock content %}

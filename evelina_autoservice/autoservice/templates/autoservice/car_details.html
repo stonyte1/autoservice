@@ -5,6 +5,9 @@
     <h1>{{ car }}</h1>
     <h2> {{ car.client }} </h2>
         <img class='car-info-image' src='{{ car.car_image.url }}'>
+    {% if car.client == request.user %}
+    <h3><a class='button float-right' href="{% url 'car_update' pk=car.pk %}">Update Car</a></h3>
+    {% endif %}
     <ul class='car-info'>
         <li>Car brand: {{ car.car_model.brand }}</li>
         <li>Car model: {{ car.car_model.model }}</li>

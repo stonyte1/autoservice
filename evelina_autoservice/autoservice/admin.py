@@ -16,10 +16,12 @@ class CarAdmin(admin.ModelAdmin):
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ('name', 'price')
 
+class OrderChatAdmin(admin.ModelAdmin):
+    list_display = ('user', 'message_at', 'message')
     
 
 admin.site.register(models.Order, OrderAdmin)
 admin.site.register(models.Service, ServiceAdmin)
 admin.site.register(models.CarModel)
 admin.site.register(models.Car, CarAdmin)
-# admin.site.register(models.OrderLine)
+admin.site.register(models.OrderChat, OrderChatAdmin)

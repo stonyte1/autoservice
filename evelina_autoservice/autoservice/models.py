@@ -163,3 +163,34 @@ class OrderLine(models.Model):
 
     def get_absolute_url(self):
         return reverse("order_line_detail", kwargs={"pk": self.pk})
+
+class OrderChat(models.Model):
+    order = models.ForeignKey(
+        Order, 
+        verbose_name=_("order"), 
+        on_delete=models.CASCADE,
+        related_name='order_chats'
+        )
+        
+    user = models.ForeignKey(
+        User, 
+        verbose_name=_("user"), 
+        on_delete=models.SET_NULL,
+        related_name='order_chats',
+        null=True,
+        blank=True
+        )
+    message_at = models.DateField(_("messaged at"), auto_now_add=True)
+    message = models.TextField(_("meesage"), max_length=4000)
+
+    class Meta:
+        ordering = ['-message_at']
+        verbose_name = _("order chat")
+        verbose_name_plural = _("order chats")
+
+    def __str__(self):
+        return f'{self.message_at}: {self.user}'
+
+    def get_absolute_url(self):
+        return reverse("orderreview_detail", kwargs={"pk": self.pk})
+
