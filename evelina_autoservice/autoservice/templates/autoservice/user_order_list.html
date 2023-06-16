@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
-{% block title %}My Orders{% endblock title %}
+{% load i18n %}
+{% block title %}{% trans "My Orders" %}{% endblock title %}
 
 {% block content %}
-    <h1>My Orders</h1>
+    <h1>{% trans "My Orders" %}</h1>
     {% if order_lines %}
         <ul>
             {% for order_line in order_lines %}
                 <li class="order-status{{ order_line.order.status }}">
                     <a href="{% url 'orderline_detail' pk=order_line.pk %}">{{ order_line.car }}</a>
-                    {{ order_line.order.get_status_display }}{% if order_line.order.due_back %}, return by {{ order_line.order.due_back }}{% endif %}
+                    {{ order_line.order.get_status_display }}{% if order_line.order.due_back %} {% trans ", return by" %} {{ order_line.order.due_back }}{% endif %}
                     {% if order_line.order.status == 'p' and order_line.order.is_overdue %}
-                    <span class='order-overdue'>OVERDUE!</span>{% endif %}
+                    <span class='order-overdue'>{% trans "OVERDUE!" %}</span>{% endif %}
                 </li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>Order history is empty.</p>
+        <p>{% trans "Order history is empty." %}</p>
     {% endif %}
 {% endblock content %}

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-{% load static %}
-<htmlang='en'>
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset='UTF-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,24 +13,35 @@
 <body>
 <header>
     <ul class='nav'>
-        <li class='logo'>&#128663; Stonyte autoservice</li>
-        <li><a href='{% url 'index' %}'>Home</a></li>
-        <li><a href='{% url 'car_list' %}'>Cars</a></li>
-        <li><a href='{% url 'orderline_list' %}'>Orders</a></li>
+        <li class='logo'>&#128663; {% trans "Stonyte autoservice" %}</li>
+        <li><a href='{% url 'index' %}'>{% trans "Home" %}</a></li>
+        <li><a href='{% url 'car_list' %}'>{% trans "Cars" %}</a></li>
+        <li><a href='{% url 'orderline_list' %}'>{% trans "Orders" %}</a></li>
         {% if user.is_authenticated %}
             <li><a href='{% url 'profile' %}'>&#128100; {{ user.get_username }}</a></li>
-            <li><a href="{% url 'logged_out' %}">Logout</a></li>
-            <li><a href="{% url 'user_order_list' %}">My Orders</a></li>
-            <li><a href="{% url 'user_car_list' %}">My Cars</a></li>
+            <li><a href="{% url 'logged_out' %}">{% trans "Logout" %}</a></li>
+            <li><a href="{% url 'user_order_list' %}">{% trans "My Orders" %}</a></li>
+            <li><a href="{% url 'user_car_list' %}">{% trans "My Cars" %}</a></li>
         {% else %}
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'signup' %}">Sign up</a></li>
+            <li><a href="{% url 'login' %}">{% trans "Login" %}</a></li>
+            <li><a href="{% url 'signup' %}">{% trans "Sign up" %}</a></li>
         {% endif %}
         {% if user.is_authenticated %}
             {% if user.is_staff or user.is_superuser %}
-                <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                <li><a href="{% url 'admin:index' %}">{% trans "Admin" %}</a></li>
             {% endif %}
         {% endif %}
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ redirect_to }}">
+            <select name="language" onchange="this.form.submit();">
+                {% for lang in LANGUAGES %}
+                    <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>
+                        {{ lang.1 }}
+                    </option>
+                {% endfor %}
+            </select>
+        </form>
     </ul>
     <main>
         {% if messages %}

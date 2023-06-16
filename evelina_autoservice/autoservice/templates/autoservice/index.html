@@ -1,20 +1,22 @@
 {% extends 'base.html' %}
-{% load humanize %}
+{% load i18n humanize %}
+
 {% block title %}Welcome to autoservice{% endblock title %}
+
 {% block content %}
-<h1>Stonyte autoservice</h1>
+<h1>{% trans "Stonyte autoservice" %}</h1>
 <div class="column-container">
-    <ul class="services">
-      <li><strong>Services</strong> {{ num_service }}</li>
-    </ul>
-    <ul class="orders">
-      <li><strong>Orders</strong> {{ num_order }}</li>
-    </ul>
-    <ul class="cars">
-      <li><strong>Cars</strong> {{ num_car }}</li>
-    </ul>
-    <ul>
-      <li><strong>Account visits</strong> {{ num_visits|ordinal }} time</li>
-    </ul>
-  </div>
+  <ul class="services">
+    <li><strong>{% trans "Stonyte autoservice" %}</strong> {{ num_service }}</li>
+  </ul>
+  <ul class="orders">
+    <li><strong>{% trans "Orders" %}</strong> {{ num_order }}</li>
+  </ul>
+  <ul class="cars">
+    <li><strong>{% trans "Cars" %}</strong> {{ num_car }}</li>
+  </ul>
+  <ul>
+    <li><strong>{% trans "Account visits" %}</strong> {{ num_visits|ordinal }} {% trans "time" %}</li>
+  </ul>
+</div>
 {% endblock content %}

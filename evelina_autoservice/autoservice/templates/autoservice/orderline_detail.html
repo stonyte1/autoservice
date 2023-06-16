@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block title %}{{ order_line.car.client }} | {{ block.super }}{% endblock title %}
 {% block content %}
 <div class='info'>   
@@ -6,35 +7,35 @@
     <h2> {{ order_line.service }} </h2>
     <img class='car-info-image' src='{{ order_line.car.car_image.url }}'>
     {% if order_line.order.status == 'c' or order_line.order.status == 'd' %}
-        <a class='cancel' href="{% url 'order_cancel' order_line.order.pk %}">Cancel order</a>
+        <a class='cancel' href="{% url 'order_cancel' order_line.order.pk %}">{% trans "Cancel order" %}</a>
     {% endif %}
-    <p class="about-order">Order description: {{ order_line.order.about_order|safe }}</p>
+    <p class="about-order">{% trans "Order description" %}: {{ order_line.order.about_order|safe }}</p>
     <ul class='car-info'>
-        <li>Date: {{ order_line.order.date }}</li>
-        <li>Car model: {{ order_line.car.car_model }}</li>
-        <li>License plate: {{ order_line.car.license_plate }}</li>
+        <li>{% trans "Date" %}: {{ order_line.order.date }}</li>
+        <li>{% trans "Car model" %}: {{ order_line.car.car_model }}</li>
+        <li>{% trans "License plate" %}: {{ order_line.car.license_plate }}</li>
         <li>
-            Status: 
-            {% if order_line.order.status == 'c' %}Confirmed{% endif %}
-            {% if order_line.order.status == 'p' %}In process{% endif %}
-            {% if order_line.order.status == 'a' %}Completed{% endif %}
-            {% if order_line.order.status == 'd' %}Denied{% endif %}
+            {% trans "Status" %}: 
+            {% if order_line.order.status == 'c' %}{% trans "Confirmed" %}{% endif %}
+            {% if order_line.order.status == 'p' %}{% trans "In process" %}{% endif %}
+            {% if order_line.order.status == 'a' %}{% trans "Completed" %}{% endif %}
+            {% if order_line.order.status == 'd' %}{% trans "Denied" %}{% endif %}
         </li>
-        <li>Due Back: {{ order_line.order.due_back }}</li>
-        <li>Total price: {{ order_line.order.total }}</li>
+        <li>{% trans "Due Back" %}: {{ order_line.order.due_back }}</li>
+        <li>{% trans "Total price" %}: {{ order_line.order.total }}</li>
     </ul>
 </div>
 <div class='chat-container'>
-    <h2>Chat</h2>
+    <h2>{% trans "Chat" %}</h2>
     {% if user.is_authenticated %}
         <form class='chat-form' method="post" action="{% url 'orderline_detail' pk=order_line.pk %}">
             {% csrf_token %}
             {{ form.as_p }}
-            <button class='chat-submit' type="submit">Send</button>
+            <button class='chat-submit' type="submit">{% trans "Send" %}</button>
         </form>
     {% else %}
-        <p class="chat-info">If you want to send a message, you have to 
-            <a href="{% url 'login' %}">login</a> or <a href="{% url 'signup' %}">sign up</a>
+        <p class="chat-info">{% trans "If you want to send a message, you have to" %} 
+            <a href="{% url 'login' %}">{% trans "login" %}</a> {% trans "or" %} <a href="{% url 'signup' %}">{% trans "sign up" %}</a>
         </p>
     {% endif %}
 
@@ -42,7 +43,7 @@
         <ul class='chat-list'>
             {% for chat in chats %}
                 <li class='chat-item'>
-                    <span class="chat-time">{{ chat.message_at }}</span> by <a href="{% url 'profile' chat.user.id %}">
+                    <span class="chat-time">{{ chat.message_at }}</span> {% trans "by" %} <a href="{% url 'profile' chat.user.id %}">
                     {% if chat.user.profile.picture %}
                         <img src="{{ user.profile.picture.url }}" class="user-avatar">
                     {% endif %}

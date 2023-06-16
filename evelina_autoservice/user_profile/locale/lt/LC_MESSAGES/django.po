@@ -1,0 +1,125 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-12 10:35+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+
+#: evelina_autoservice/user_profile/models.py:10
+msgid "user"
+msgstr "vartotojas"
+
+#: evelina_autoservice/user_profile/models.py:16
+msgid "picture"
+msgstr "nuotrauka"
+
+#: evelina_autoservice/user_profile/models.py:19
+msgid "profile"
+msgstr "profilis"
+
+#: evelina_autoservice/user_profile/models.py:20
+msgid "profiles"
+msgstr "profiliai"
+
+#: evelina_autoservice/user_profile/templates/registration/logged_out.html:2
+msgid "Bye"
+msgstr "Viso"
+
+#: evelina_autoservice/user_profile/templates/registration/logged_out.html:4
+msgid "Till next time!"
+msgstr "Iki kito pasimatymo!"
+
+#: evelina_autoservice/user_profile/templates/registration/logged_out.html:5
+msgid "Log in "
+msgstr "Prisijungti"
+
+#: evelina_autoservice/user_profile/templates/registration/logged_out.html:5
+msgid "again"
+msgstr "dar kartą"
+
+#: evelina_autoservice/user_profile/templates/registration/login.html:2
+msgid "Login to"
+msgstr "Prisijungti prie"
+
+#: evelina_autoservice/user_profile/templates/registration/login.html:4
+msgid "Login to Stonyte autoservice"
+msgstr "Prisijungti prie Stonytės autoserviso"
+
+#: evelina_autoservice/user_profile/templates/registration/login.html:6
+msgid "Login error. Try again."
+msgstr "Prisijungimo klaida. Bandykite dar kartą."
+
+#: evelina_autoservice/user_profile/templates/registration/login.html:14
+msgid "Log in"
+msgstr "Prisijungti"
+
+#: evelina_autoservice/user_profile/templates/registration/login.html:16
+msgid "Forgot password?"
+msgstr "Pamiršote slaptažodį?"
+
+#: evelina_autoservice/user_profile/templates/registration/login.html:17
+msgid "If you do not have an account, please "
+msgstr "Jei neturite varotojo, prašau"
+
+#: evelina_autoservice/user_profile/templates/registration/login.html:17
+msgid "sign up"
+msgstr "užsiregistruoti"
+
+#: evelina_autoservice/user_profile/templates/registration/password_reset_complete.html:2
+msgid "Password Changed at"
+msgstr "Slaptažodis pakeistas"
+
+#: evelina_autoservice/user_profile/templates/registration/password_reset_complete.html:4
+msgid "Password has been changed successfully"
+msgstr "Slaptažodis pakeistas sėkmingai"
+
+#: evelina_autoservice/user_profile/templates/registration/password_reset_complete.html:5
+msgid "You can now"
+msgstr "Dabar galite"
+
+#: evelina_autoservice/user_profile/templates/registration/password_reset_complete.html:5
+msgid "log in"
+msgstr "prisijungti"
+
+#: evelina_autoservice/user_profile/templates/registration/password_reset_complete.html:5
+msgid "with your password."
+msgstr "su jūsų slaptažodžiu"
+
+#: evelina_autoservice/user_profile/templates/registration/password_reset_confirmed.html:2
+msgid "Password Reset "
+msgstr "Slaptažodžio atnaujinimas"
+
+#: evelina_autoservice/user_profile/templates/registration/password_reset_confirmed.html:8
+msgid "Change Password"
+msgstr "Pakeisti slaptažodį"
+
+#: evelina_autoservice/user_profile/templates/registration/password_reset_confirmed.html:11
+msgid "Password Reset Failed: the link has expired it is no longer valid."
+msgstr "Slaptažodžio pakeitimo klaida: tinklapio laikas pasibaigė."
+
+#: evelina_autoservice/user_profile/templates/registration/password_reset_form.html:2
+msgid "Password Reset at"
+msgstr "Slaptažodį pakeisti"
+
+#: evelina_autoservice/user_profile/templates/registration/password_reset_form.html:4
+msgid "Password Reset"
+msgstr "Slaptažodžio atnaujinimas"
+
+#: evelina_autoservice/user_profile/templates/registration/password_reset_form.html:8
+msgid "Confirm"
+msgstr "Patvirtinti"

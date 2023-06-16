@@ -187,6 +187,7 @@ class CarUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView)
 
     def form_valid(self, form):
         form.instance.client = self.request.user
+        messages.success(self.request, 'Car is updated')
         return super().form_valid(form)
 
     def test_func(self):
@@ -198,6 +199,10 @@ class OrderDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteVie
     template_name = 'autoservice/user_order_cancel.html'
     success_url = reverse_lazy('user_order_list')
 
+    def form_valid(self, form):
+        messages.success(self.request, 'Order is deleted')
+        return super().form_valid(form)
+    
     def test_func(self) -> bool | None:
         obj = self.get_object()
         return obj.car.client == self.request.user

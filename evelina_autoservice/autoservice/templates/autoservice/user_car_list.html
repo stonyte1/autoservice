@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
-{% block title %}My Cars{% endblock title %}
+{% load i18n %}
+{% block title %}{% trans "My Cars" %}{% endblock title %}
 
 {% block content %}
-    <h1>My Cars</h1>
+    <h1>{% trans "My Cars" %}</h1>
     {% if cars %}
         <ul>
             {% for car in cars%}
@@ -12,10 +13,10 @@
             {% endfor %}
         </ul>
     {% else %}
-        <p>Order history is empty.</p>
+        <p>{% trans "Order history is empty." %}</p>
     {% endif %}
     <ul class='create'>
-        <li><a class="button float-right" href="{% url 'car_create' %}">Create Car</a></li>
-        <li><a class="button float-right" href="{% url 'order_create' %}?order_id={{ order.id }}">Create Order</a></li>
+        <li><a class="button float-right" href="{% url 'car_create' %}">{% trans "Create Car" %}</a></li>
+        <li><a class="button float-right" href="{% url 'order_create' %}?order_id={{ order.id }}">{% trans "Create Order" %}</a></li>
     </ul>
 {% endblock content %}

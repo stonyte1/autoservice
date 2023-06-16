@@ -1,0 +1,394 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-12 10:35+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+
+#: evelina_autoservice/autoservice/models.py:13
+msgid "brand"
+msgstr "markė"
+
+#: evelina_autoservice/autoservice/models.py:14
+msgid "model"
+msgstr "modelis"
+
+#: evelina_autoservice/autoservice/models.py:15
+msgid "year of manufacture"
+msgstr "pagaminimo metai"
+
+#: evelina_autoservice/autoservice/models.py:16
+msgid "engine"
+msgstr "variklIS"
+
+#: evelina_autoservice/autoservice/models.py:20
+#: evelina_autoservice/autoservice/models.py:33
+msgid "car model"
+msgstr "mašinos modelis"
+
+#: evelina_autoservice/autoservice/models.py:21
+msgid "car models"
+msgstr "mašinos modeliai"
+
+#: evelina_autoservice/autoservice/models.py:30
+msgid "license plate"
+msgstr "valstybinis numeris"
+
+#: evelina_autoservice/autoservice/models.py:37
+#: evelina_autoservice/autoservice/templates/autoservice/car_details.html:17
+msgid "VIN code"
+msgstr "VIN kodas"
+
+#: evelina_autoservice/autoservice/models.py:40
+msgid "client"
+msgstr "klientas"
+
+#: evelina_autoservice/autoservice/models.py:47
+msgid "image"
+msgstr "nuotrauka"
+
+#: evelina_autoservice/autoservice/models.py:54
+#: evelina_autoservice/autoservice/models.py:67
+#: evelina_autoservice/autoservice/models.py:139
+msgid "car"
+msgstr "mašina"
+
+#: evelina_autoservice/autoservice/models.py:55
+msgid "cars"
+msgstr "mašinos"
+
+#: evelina_autoservice/autoservice/models.py:64
+msgid "date"
+msgstr "data"
+
+#: evelina_autoservice/autoservice/models.py:71
+msgid "total"
+msgstr "suma"
+
+#: evelina_autoservice/autoservice/models.py:72
+msgid "return time"
+msgstr "grąžinimo laikas"
+
+#: evelina_autoservice/autoservice/models.py:73
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:11
+msgid "Order description"
+msgstr "Užsakymo aprašymas"
+
+#: evelina_autoservice/autoservice/models.py:106
+#: evelina_autoservice/autoservice/models.py:170
+msgid "order"
+msgstr "užsakymas"
+
+#: evelina_autoservice/autoservice/models.py:107
+msgid "orders"
+msgstr "užsakymai"
+
+#: evelina_autoservice/autoservice/models.py:116
+msgid "name"
+msgstr "pavadinimas"
+
+#: evelina_autoservice/autoservice/models.py:117
+#: evelina_autoservice/autoservice/models.py:144
+msgid "price"
+msgstr "kaina"
+
+#: evelina_autoservice/autoservice/models.py:121
+#: evelina_autoservice/autoservice/models.py:133
+msgid "service"
+msgstr "paslauga"
+
+#: evelina_autoservice/autoservice/models.py:122
+msgid "services"
+msgstr "paslaugo"
+
+#: evelina_autoservice/autoservice/models.py:143
+msgid "quantity"
+msgstr "kiekis"
+
+#: evelina_autoservice/autoservice/models.py:161
+msgid "order line"
+msgstr "užsakymo eilutė"
+
+#: evelina_autoservice/autoservice/models.py:162
+msgid "order lines"
+msgstr "užsakymo eilutės"
+
+#: evelina_autoservice/autoservice/models.py:177
+msgid "user"
+msgstr "užsakymo eilutės"
+
+#: evelina_autoservice/autoservice/models.py:183
+msgid "messaged at"
+msgstr "išiųsta"
+
+#: evelina_autoservice/autoservice/models.py:184
+msgid "meesage"
+msgstr "žinutė"
+
+#: evelina_autoservice/autoservice/models.py:188
+msgid "order chat"
+msgstr "užsakymo susirašinėjimas"
+
+#: evelina_autoservice/autoservice/models.py:189
+msgid "order chats"
+msgstr "užsakymo susirašinėjimai"
+
+#: evelina_autoservice/autoservice/templates/autoservice/car_details.html:9
+msgid "Update Car"
+msgstr "Keisti mašinos parametrus"
+
+#: evelina_autoservice/autoservice/templates/autoservice/car_details.html:12
+#| msgid "brand"
+msgid "Car brand"
+msgstr "Mašinos markė"
+
+#: evelina_autoservice/autoservice/templates/autoservice/car_details.html:13
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:14
+#| msgid "car model"
+msgid "Car model"
+msgstr "Mašinos modelis"
+
+#: evelina_autoservice/autoservice/templates/autoservice/car_details.html:14
+#| msgid "engine"
+msgid "Engine"
+msgstr "Variklis"
+
+#: evelina_autoservice/autoservice/templates/autoservice/car_details.html:15
+#: evelina_autoservice/autoservice/templates/autoservice/car_details.html:16
+msgid "Manufactor year"
+msgstr "Pagaminimo metai"
+
+#: evelina_autoservice/autoservice/templates/autoservice/car_form.html:2
+#: evelina_autoservice/autoservice/templates/autoservice/order_form.html:2
+msgid "Submit"
+msgstr "Patvirtinti"
+
+#: evelina_autoservice/autoservice/templates/autoservice/car_form.html:2
+#: evelina_autoservice/autoservice/templates/autoservice/order_form.html:2
+#, fuzzy
+#| msgid "date"
+msgid "at"
+msgstr "data"
+
+#: evelina_autoservice/autoservice/templates/autoservice/car_form.html:4
+msgid "Car for"
+msgstr "Ši mašina"
+
+#: evelina_autoservice/autoservice/templates/autoservice/car_form.html:8
+msgid "Confirm Car"
+msgstr "Patvirtinti mašinos pakeitimus"
+
+#: evelina_autoservice/autoservice/templates/autoservice/cars.html:2
+msgid "Cars in"
+msgstr "Mašinos servise"
+
+#: evelina_autoservice/autoservice/templates/autoservice/cars.html:4
+#: evelina_autoservice/autoservice/templates/autoservice/index.html:14
+#: evelina_autoservice/autoservice/templates/base.html:18
+msgid "Cars"
+msgstr "Mašinos"
+
+#: evelina_autoservice/autoservice/templates/autoservice/index.html:3
+msgid "Welcome to autoservice"
+msgstr "Sveiki atvyke į autoservisą"
+
+#: evelina_autoservice/autoservice/templates/autoservice/index.html:5
+#: evelina_autoservice/autoservice/templates/autoservice/index.html:8
+#: evelina_autoservice/autoservice/templates/base.html:16
+msgid "Stonyte autoservice"
+msgstr "Stonytės autoservise"
+
+#: evelina_autoservice/autoservice/templates/autoservice/index.html:11
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_list.html:2
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_list.html:4
+#: evelina_autoservice/autoservice/templates/base.html:19
+#| msgid "orders"
+msgid "Orders"
+msgstr "Užsakymai"
+
+#: evelina_autoservice/autoservice/templates/autoservice/index.html:17
+msgid "Account visits"
+msgstr "Tinklapyje būta: "
+
+#: evelina_autoservice/autoservice/templates/autoservice/index.html:17
+msgid "time"
+msgstr "kartas(i)"
+
+#: evelina_autoservice/autoservice/templates/autoservice/order_form.html:4
+msgid "Order for"
+msgstr "Užsakė"
+
+#: evelina_autoservice/autoservice/templates/autoservice/order_form.html:8
+msgid "Confirm Order"
+msgstr "Patvirtinti užsakymą"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:9
+#: evelina_autoservice/autoservice/templates/autoservice/user_order_cancel.html:2
+#: evelina_autoservice/autoservice/templates/autoservice/user_order_cancel.html:4
+msgid "Cancel order"
+msgstr "Atšaukti užsakymą"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:13
+msgid "Date"
+msgstr "Data"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:15
+#| msgid "license plate"
+msgid "License plate"
+msgstr "Valstybinis numeris"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:17
+#: evelina_autoservice/autoservice/templates/autoservice/user_order_cancel.html:6
+msgid "Status"
+msgstr "Statusas"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:18
+#: evelina_autoservice/autoservice/templates/autoservice/user_order_cancel.html:7
+msgid "Confirmed"
+msgstr "Patvirtintas"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:19
+msgid "In process"
+msgstr "Tvarkoma"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:20
+msgid "Completed"
+msgstr "Baigta"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:21
+#: evelina_autoservice/autoservice/templates/autoservice/user_order_cancel.html:8
+msgid "Denied"
+msgstr "Atšaukta"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:23
+msgid "Due Back"
+msgstr "Grąžinti iki"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:24
+#| msgid "price"
+msgid "Total price"
+msgstr "Galutinė kaina"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:28
+msgid "Chat"
+msgstr "Susirašinėjimas"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:33
+msgid "Send"
+msgstr "Siųsti"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:36
+msgid "If you want to send a message, you have to"
+msgstr "Jei norite siųsti žinutę, reikia"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:37
+msgid "login"
+msgstr "prisijungti"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:37
+msgid "or"
+msgstr "arba"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:37
+msgid "sign up"
+msgstr "prisiregistruoti"
+
+#: evelina_autoservice/autoservice/templates/autoservice/orderline_detail.html:45
+msgid "by"
+msgstr ""
+
+#: evelina_autoservice/autoservice/templates/autoservice/user_car_list.html:2
+#: evelina_autoservice/autoservice/templates/autoservice/user_car_list.html:5
+#: evelina_autoservice/autoservice/templates/base.html:24
+msgid "My Cars"
+msgstr "Mano mašinos"
+
+#: evelina_autoservice/autoservice/templates/autoservice/user_car_list.html:15
+#: evelina_autoservice/autoservice/templates/autoservice/user_order_list.html:18
+msgid "Order history is empty."
+msgstr "Užsakymų istorija tuščia"
+
+#: evelina_autoservice/autoservice/templates/autoservice/user_car_list.html:18
+msgid "Create Car"
+msgstr "Pridėti naują mašiną"
+
+#: evelina_autoservice/autoservice/templates/autoservice/user_car_list.html:19
+msgid "Create Order"
+msgstr "Pridėti naują užsakymą"
+
+#: evelina_autoservice/autoservice/templates/autoservice/user_order_cancel.html:5
+#| msgid "car"
+msgid "Car"
+msgstr "Mašina"
+
+#: evelina_autoservice/autoservice/templates/autoservice/user_order_cancel.html:10
+#| msgid "date"
+msgid "Due date"
+msgstr "Grąžinti iki"
+
+#: evelina_autoservice/autoservice/templates/autoservice/user_order_cancel.html:13
+msgid "Confirm Order Cancelation"
+msgstr "Patvirtinkite užsakymo atšaukimą"
+
+#: evelina_autoservice/autoservice/templates/autoservice/user_order_cancel.html:16
+msgid "Change my mind"
+msgstr "Pakeičiau nuomonę"
+
+#: evelina_autoservice/autoservice/templates/autoservice/user_order_list.html:2
+#: evelina_autoservice/autoservice/templates/autoservice/user_order_list.html:5
+#: evelina_autoservice/autoservice/templates/base.html:23
+#| msgid "orders"
+msgid "My Orders"
+msgstr "Mano užsakymai"
+
+#: evelina_autoservice/autoservice/templates/autoservice/user_order_list.html:11
+#| msgid "return time"
+msgid ", return by"
+msgstr "grąžinti iki"
+
+#: evelina_autoservice/autoservice/templates/autoservice/user_order_list.html:13
+msgid "OVERDUE!"
+msgstr "Grąžinimo laikas baigėsi"
+
+#: evelina_autoservice/autoservice/templates/base.html:17
+msgid "Home"
+msgstr "Pradinis puslapis"
+
+#: evelina_autoservice/autoservice/templates/base.html:22
+msgid "Logout"
+msgstr "Atsijungti"
+
+#: evelina_autoservice/autoservice/templates/base.html:26
+msgid "Login"
+msgstr "Prisijungti"
+
+#: evelina_autoservice/autoservice/templates/base.html:27
+msgid "Sign up"
+msgstr "Užsiregistruoti"
+
+#: evelina_autoservice/autoservice/templates/base.html:31
+msgid "Admin"
+msgstr "Administratorius"
+
+#: evelina_autoservice/autoservice/templates/includes/search.html:4
+msgid "clear"
+msgstr "pravalyti"
+
+#: evelina_autoservice/autoservice/views.py:100
+msgid "Message sent!"
+msgstr "Žinutė išsiųsta!"

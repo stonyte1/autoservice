@@ -1,5 +1,6 @@
+{% load i18n %}
 <form action='{{ request.path }}' method='get'>
     <input name='query' type='text' value='{{ request.GET.query }}'>
     <button type='submit'>&#128269;</button>
-    {% if request.GET.query %}<a href='{{ request.path }}'>clear</a>{% endif %}
+    {% if request.GET.query %}<a href='{{ request.path }}'>{% trans "clear" %}</a>{% endif %}
 </form>

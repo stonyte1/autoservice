@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
-{% block title %}Bye{% endblock title %}
+{% load i18n %}
+{% block title %}{% trans "Bye" %}{% endblock title %}
 {% block content %}
-    <h1>Till next time!</h1>
-    <p><a href="{% url 'login' %}"><super>Log in <super></a>again</p>
+    <h1>{% trans "Till next time!" %}</h1>
+    <p><a href="{% url 'login' %}"><super>{% trans "Log in" %}<super></a> {% trans "again" %}</p>
 {% endblock content %}

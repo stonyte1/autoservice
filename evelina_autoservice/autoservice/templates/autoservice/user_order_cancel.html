@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
-{% block title %}Cancel order{% endblock title %}
+{% load i18n %}
+{% block title %}{% trans "Cancel order" %}{% endblock title %}
 {% block content %}
-    <h1>Cancel order</h1>
-    <p>Car: {{ object.car }}</p>
-    <p>Status:
-        {% if object.status == 'c' %}Confirmed{% endif %}
-        {% if object.status == 'd' %}Denied{% endif %}
+    <h1>{% trans "Cancel order" %}</h1>
+    <p>{% trans "Car" %}: {{ object.car }}</p>
+    <p>{% trans "Status" %}:
+        {% if object.status == 'c' %}{% trans "Confirmed" %}{% endif %}
+        {% if object.status == 'd' %}{% trans "Denied" %}{% endif %}
     </p>
-    <p class="{% if object.is_overdue %}order-overdue{% endif %}">Due date: {{ object.due_back }}</p>
+    <p class="{% if object.is_overdue %}order-overdue{% endif %}">{% trans "Due date" %}: {{ object.due_back }}</p>
     <form action="{{ request.path }}" method="post">
     {% csrf_token %}
-    <button type="submit">Confirm Order Cancelation</button>
+    <button type="submit">{% trans "Confirm Order Cancelation" %}</button>
     </form>
     <div style="margin-left: 10px;">
-        <a href="{% url 'user_order_list' %}">Change my mind</a>
+        <a href="{% url 'user_order_list' %}">{% trans "Change my mind" %}</a>
     </div>
 {% endblock content %}

@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
-{% block title %}Submit {{ client }} at {{ block.super }}{% endblock title %}
+{% load i18n %}
+{% block title %}{% trans "Submit" %} {{ client }} {% trans "at" %} {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Car for{{ client }}</h1>
+<h1>{% trans "Car for" %}{{ client }}</h1>
 <form method="post" enctype="multipart/form-data" action="{{ request.path }}?car_id={{ car.id }}">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Confirm Car</button>
+    <button type="submit">{% trans "Confirm Car" %}</button>
 </form>
 {% endblock content %}
